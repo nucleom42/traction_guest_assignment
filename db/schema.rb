@@ -27,9 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_140445) do
     t.integer "gov_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email", "gov_id_number"], name: "index_users_on_email_and_gov_id_number", unique: true
-    t.index ["first_name", "last_name", "email", "gov_id_number"], name: "index_unique_all_fields", unique: true
     t.index ["gov_id"], name: "index_users_on_gov_id"
+    t.index ["gov_id_number", "first_name", "last_name", "email"], name: "index_unique_all_fields", unique: true
   end
 
   add_foreign_key "users", "govs"

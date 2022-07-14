@@ -11,8 +11,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-
-    add_index :users, %i[email gov_id_number], unique: true
-    add_index :users, %i[first_name last_name email gov_id_number], unique: true, name: 'index_unique_all_fields'
+    
+    add_index :users, %i[gov_id_number first_name last_name email], unique: true, name: 'index_unique_all_fields'
   end
 end

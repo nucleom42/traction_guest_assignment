@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**RESTful API:**
 
-Things you may want to cover:
+> **GET /user**
+* (optional) request params: 
+>>{ id: 1, first_name: 'test', last_name: 'test2', email: 'test@test.com', gov_id_number: '123342-OP-32', single_result: 'false' }
+* ok response: 
+>>[{"id":1,"first_name":"name_0_id","last_name":"last_name_0_id","email":"test_id_0@test.com","gov_id_number":"0235-id-0","gov_id_type":"ID"},{"id":2,"first_name":"name_0_ssn","last_name":"last_name_0_ssn","email":"test_ssn_0@test.com","gov_id_number":"0235-ssn-0","gov_id_type":"SSN"}]
+* error response:
+>> {"error":"too many records"}
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+> **DELETE /user**
+* (required at least one) request params:
+>>{ id: 1, first_name: 'test', last_name: 'test2', email: 'test@test.com', gov_id_number: '123342-OP-32'}
+* ok response:
+>>{"ok":1}
+* error response:
+>> {"error":"too many records"}

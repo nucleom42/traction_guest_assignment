@@ -1,19 +1,31 @@
 # README
 
-**RESTful API:**
+## RESTful API:
 
-> **GET /user**
+**GET /user**
 * (optional) request params: 
->>{ id: 1, first_name: 'test', last_name: 'test2', email: 'test@test.com', gov_id_number: '123342-OP-32', single_result: 'false' }
+```ruby
+{ id: 1, first_name: 'test', last_name: 'test2', email: 'test@test.com', gov_id_number: '123342-OP-32', single_result: 'false' }
+```
 * ok response: 
->>[{"id":1,"first_name":"name_0_id","last_name":"last_name_0_id","email":"test_id_0@test.com","gov_id_number":"0235-id-0","gov_id_type":"ID"},{"id":2,"first_name":"name_0_ssn","last_name":"last_name_0_ssn","email":"test_ssn_0@test.com","gov_id_number":"0235-ssn-0","gov_id_type":"SSN"}]
+```ruby
+[{"id":1,"first_name":"name_0_id","last_name":"last_name_0_id","email":"test_id_0@test.com","gov_id_number":"0235-id-0","gov_id_type":"ID"},{"id":2,"first_name":"name_0_ssn","last_name":"last_name_0_ssn","email":"test_ssn_0@test.com","gov_id_number":"0235-ssn-0","gov_id_type":"SSN"}]
+```
 * error response:
->> {"error":"too many records"}
+```ruby
+{"error":"too many records"}
+```
 
-> **DELETE /user**
+**DELETE /user**
 * (required at least one) request params:
->>{ id: 1, first_name: 'test', last_name: 'test2', email: 'test@test.com', gov_id_number: '123342-OP-32'}
+```ruby
+{ id: 1, first_name: 'test', last_name: 'test2', email: 'test@test.com', gov_id_number: '123342-OP-32'}
+```
 * ok response:
->>{"ok":1}
+```ruby
+{"ok":1}
+```
 * error response:
->> {"error":"too many records"}
+```ruby
+{"error":"too many records"}
+```

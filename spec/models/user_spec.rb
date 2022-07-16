@@ -10,15 +10,20 @@ RSpec.describe User, type: :model do
       it 'returns false' do
         expect(user.valid?).to eq false
       end
+      
+      it 'errors message is email format is invalid' do
+        user.valid?
+        #expect(user.errors).to eq {}
+      end
     end
 
     context 'when record with same fields already created' do
       let(:gov) { create(:gov) }
-      let(:user) { build(:user, gov: gov) }
+      subject { build(:user, gov: gov) }
       before { create(:user, gov: gov) }
 
       it 'returns false' do
-        expect(user.valid?).to eq false
+        expect(subject.valid?).to eq false
       end
     end
   end

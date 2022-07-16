@@ -2,13 +2,22 @@
 
 class UserController < ApplicationController
   class NoUserFound < StandardError; end
+  
+  def create
+    gov = Gov.find_by(gov_id_type: gov_params[:gov_id_type])
+    user = User.create!(**users_params.merge(gov_id: gov.id))
+
+    render(json: user)
+  rescue => e
+    render json: { error: e.message }, status: :bad_request
+  end
 
   def index
     users =
       Users::Filterer.new(user: users_params, gov: gov_params, single_result: single_result_params[:single_result]).call
 
     render(json: users.includes(:gov), each_serializer: UserSerializer)
-  rescue StandardError => e
+  rescue => e
     render json: { error: e.message }, status: :bad_request
   end
 

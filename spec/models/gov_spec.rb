@@ -9,7 +9,7 @@ RSpec.describe Gov, type: :model do
       before { create(:gov) }
 
       it 'expects to be not valid' do
-        expect(gov.valid?).to eq false
+        expect(gov).not_to be_valid
       end
     end
     
